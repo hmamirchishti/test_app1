@@ -2,3 +2,7 @@
 
 Title:<%= @article.title %> <br/>
 Description:<%= @article.description %>
+
+</br>
+<%= link_to "Edit this article", edit_article_path(@article) %>
+</br><%= link_to "Back to articles", articles_path %>

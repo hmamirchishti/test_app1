@@ -1,0 +1,17 @@
+<h2>Index Page:</h2>
+<%= link_to "Add new article", new_article_path %>
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Description</td>
+  </tr>
+
+    <% @article.each do |art| %>
+      <tr>
+      <td><%= art.title %> </td>
+      <td><%= art.description %> </td>
+        <td><%= link_to "Show", article_path(art) %></td>
+        <td><%= link_to "Edit", edit_article_path(art) %></td>
+      </tr>
+  <% end %>
+</table>

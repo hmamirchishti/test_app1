@@ -2,15 +2,15 @@
 
     <% if @article.errors.any? %>
         <h3>The following errors prevented article from getting created:</h3>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
 
-        <li>
-          <%= msg %>
-        </li>
+              <li>
+                <%= msg %>
+              </li>
 
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
     <% end %>
     <p>
       <%= f.label :title %> <br/>
