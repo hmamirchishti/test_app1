@@ -1,20 +1,21 @@
 <h2>Index Page:</h2>
-<%= link_to "Add new article", new_article_path %>
-<table>
-  <tr>
-    <td>Title</td>
-    <td>Description</td>
-  </tr>
-
     <% @article.each do |art| %>
-      <tr>
-      <td><%= art.title %> </td>
-      <td><%= art.description %> </td>
-        <td><%= link_to "Show", article_path(art) %></td>
-        <td>|</td>
-        <td><%= link_to "Delete", article_path(art), method: :delete, data: {confirm:"Are you sure?"}%></td>
-        <td>|</td>
-        <td><%= link_to "Edit", edit_article_path(art) %></td>
-      </tr>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-2">
+        <div class="well well-lg" >
+          <div class="article-title">
+              <%= link_to art.title, article_path(art) %>
+          </div>
+          <div class="article-description">
+              <%= truncate(art.description, length: 100 )%>
+          </div>
+          <div class="article-actions">
+            <%= link_to "Edit this article", edit_article_path(art), class: "btn btn-xs btn-primary"%>
+            <%= link_to "Delete this article", article_path(art), method: :delete, data: {confirm:"Are you sure you want to delete the article?"},
+                        class:"btn btn-xs btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <% end %>
-</table>
