@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.paginate(page: params[:page],per_page: 3)
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -26,9 +30,12 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
   def show
     @user = User.find(params[:id])
+    @userarticles = @user.articles.paginate(page: params[:page], per_page:3)
   end
+
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)
