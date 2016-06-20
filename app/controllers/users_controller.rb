@@ -54,7 +54,7 @@ private
     params.require(:user).permit(:username, :email, :password)
   end
   def require_same_user
-    if current_user != @user || !current_user.admin?
+    if current_user != @user and !current_user.admin?
       flash[:danger] = "You can only edit your own profile"
       redirect_to root_path
     end
